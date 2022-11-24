@@ -1,14 +1,16 @@
 package ashirbad.india.employeerest.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ashirbad.india.employeerest.controller.helper.ResponseHandler;
 import ashirbad.india.employeerest.entity.Employee;
 import ashirbad.india.employeerest.service.EmployeeService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,30 +25,30 @@ public class EmployeeController {
     private EmployeeService eService;
 
     @GetMapping("/")
-    public List<Employee> getAll(){
-        return eService.findAll();
+    public ResponseEntity<Object> getAll(){
+        return ResponseHandler.generateResponse("OK", HttpStatus.OK, eService.findAll());
     }
 
     @GetMapping("/{eId}")
-    public Employee getById(@PathVariable int eId){
-        return eService.findById(eId);
+    public ResponseEntity<Object> getById(@PathVariable int eId){
+        return ResponseHandler.generateResponse("OK", HttpStatus.OK, eService.findById(eId));
     }
 
     @PostMapping("/")
-    public Employee save(@RequestBody Employee emp) {
+    public ResponseEntity<Object> save(@RequestBody Employee emp) {
         Employee saved = eService.save(emp);
-        return saved;
+        return ResponseHandler.generateResponse("Employee created successfully", HttpStatus.OK, saved);
     }
     
     @PutMapping("/{eId}")
-    public Employee update(@PathVariable int eId, @RequestBody Employee emp){
+    public ResponseEntity<Object> update(@PathVariable int eId, @RequestBody Employee emp){
         Employee updated = eService.update(eId, emp);
-        return updated;
+        return ResponseHandler.generateResponse("Employee updated successfully", HttpStatus.OK, updated);
     }
 
     @DeleteMapping("/{eId}")
-    public String delete(@PathVariable int eId){
+    public ResponseEntity<Object> delete(@PathVariable int eId){
         eService.delete(eId);
-        return "Successfully Removed";
+        return ResponseHandler.generateResponse("Employee removed successfully", HttpStatus.OK, null);
     }
 }
