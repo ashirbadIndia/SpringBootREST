@@ -17,10 +17,7 @@ to run the app
 ```bash
 mvn spring-boot:run
 ```
-or
-```bash
-./mvnw spring-boot:run
-```
+  
   
 APIs
   
