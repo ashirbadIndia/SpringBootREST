@@ -1,5 +1,5 @@
 # SpringBootREST
-Write a server using Java Stack(SpringBoot) and write APIs of the create, update, delete, fetch list and fetch details of the employee.
+Q. Write a server using Java Stack(SpringBoot) and write APIs of the create, update, delete, fetch list and fetch details of the employee.
 
   
 Authentication Method: Header-based authentication with client id and client secret
@@ -11,6 +11,9 @@ Authentication Method: Header-based authentication with client id and client sec
 4. update Employee  
 5. remove Employee  
   
+  
+DB  
+mysql://mydb1.cqmdz5wgesfd.ap-south-1.rds.amazonaws.com:3306/mydb2?useSSL=false&serverTimezone=UTC
   
 to run the app
   
