@@ -17,17 +17,16 @@ public class EmployeeServiceImp implements EmployeeService{
 
     @Override
     public List<Employee> findAll() {
-        // List<Employee> employees = empRepo.findAll();
         return empRepo.findAll();
     }
 
     @Override
     public Employee findById(int id) {
         Optional<Employee> res = empRepo.findById(id);
-        if(res.isPresent()){
-            return res.get();
+        if(!res.isPresent()){
+            throw new org.springframework.dao.EmptyResultDataAccessException(1);
         }
-        return null;
+        return res.get();
     }
 
     @Override
