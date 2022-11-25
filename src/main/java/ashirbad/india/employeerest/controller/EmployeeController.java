@@ -24,7 +24,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeService eService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<Object> getAll(){
         return ResponseHandler.generateResponse("OK", HttpStatus.OK, eService.findAll());
     }
@@ -34,7 +34,7 @@ public class EmployeeController {
         return ResponseHandler.generateResponse("OK", HttpStatus.OK, eService.findById(eId));
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity<Object> save(@RequestBody Employee emp) {
         Employee saved = eService.save(emp);
         return ResponseHandler.generateResponse("Employee created successfully", HttpStatus.OK, saved);
