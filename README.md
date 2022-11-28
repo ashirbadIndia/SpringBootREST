@@ -13,7 +13,7 @@ Authentication Method: Header-based authentication with client id and client sec
   
   
 DB  
-mysql://mydb1.cqmdz5wgesfd.ap-south-1.rds.amazonaws.com:3306/mydb2?useSSL=false&serverTimezone=UTC
+mysql://mydb.cqmdz5wgesfd.ap-south-1.rds.amazonaws.com:3306/mydb?useSSL=false&serverTimezone=UTC
   
 to run the app
   
